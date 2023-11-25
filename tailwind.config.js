@@ -9,15 +9,15 @@ export default {
         },
         yellow: "#fffa67",
         borderOrange: "#e99745",
+        turquoise: "#4DFFDA",
       },
       fontFamily: {
-        worksans: ["Work Sans", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       boxShadow: {
         card: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
-        glow: "0px 0px 45px 55px rgba(233,151, 69, 0.75)",
-        innerGlow: "inset 0px 0px 25px 25px rgb(233,151, 69, 1)",
+        glow: "0px 0px 205px 55px rgba(233,151, 69, 0.35)",
+        innerGlow: "inset 0px 0px 215px 1px rgba(233,151, 69, 0.35)",
       },
       dropShadow: {
         glow: [
@@ -28,7 +28,23 @@ export default {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
+      keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+      },
+      animation: {
+        text: "text 3s ease infinite",
+      },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line no-undef
+  plugins: [require("tailwind-scrollbar")],
 };
