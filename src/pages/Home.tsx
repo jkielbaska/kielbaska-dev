@@ -1,5 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "../models/computers/Experience";
+import { Suspense } from "react";
+import { Loader } from "../components/Loader";
 // import { Title } from "../components/Title";
 
 export const Home = () => {
@@ -11,7 +13,9 @@ export const Home = () => {
         camera={{ position: [-2.8, 0.7, 5.5], fov: 40, near: 1, far: 25 }}
         eventPrefix="client"
       >
-        <Experience />
+        <Suspense fallback={<Loader />}>
+          <Experience />
+        </Suspense>
       </Canvas>
     </section>
   );
