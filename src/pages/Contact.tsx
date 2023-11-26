@@ -1,6 +1,7 @@
 // import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { ContactForm } from "../components/ContactForm";
+//@ts-expect-error - temporary change for jsx
 import { Bun } from "../models/Bun";
 import { OrbitControls } from "@react-three/drei";
 import { Suspense, useState } from "react";

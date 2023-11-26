@@ -1,5 +1,7 @@
 import { useFrame } from "@react-three/fiber";
+//@ts-expect-error - temporary change for jsx
 import { Instances, ComputersProvider } from "./Provider";
+//@ts-expect-error - temporary change for jsx
 import { Bun } from "../Bun";
 import { MeshReflectorMaterial, useScroll } from "@react-three/drei";
 import { useRef, useLayoutEffect } from "react";
