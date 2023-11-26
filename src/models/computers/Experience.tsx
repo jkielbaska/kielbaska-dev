@@ -20,7 +20,7 @@ export const Experience = () => {
         castShadow
         shadow-mapSize={1024}
       />
-      <ScrollControls pages={3} damping={0.35}>
+      <ScrollControls pages={4} damping={0.35}>
         <Overlay />
         <AllElements />
       </ScrollControls>

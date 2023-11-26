@@ -29,12 +29,14 @@ export const Overlay = () => {
   const scroll = useScroll();
   const [opacityFirstSection, setOpacityFirstSection] = useState(1);
   const [opacitySecondSection, setOpacitySecondSection] = useState(1);
+  const [opacityThirdSection, setOpacityThirdSection] = useState(1);
   const [opacityLastSection, setOpacityLastSection] = useState(1);
 
   useFrame(() => {
-    setOpacityFirstSection(1 - scroll.range(0, 1 / 3));
-    setOpacitySecondSection(scroll.curve(1 / 3, 1 / 3));
-    setOpacityLastSection(scroll.range(2 / 3, 1 / 3));
+    setOpacityFirstSection(1 - scroll.range(0, 1 / 4));
+    setOpacitySecondSection(scroll.curve(1 / 4, 1 / 4));
+    setOpacityThirdSection(scroll.curve(2 / 4, 1 / 4));
+    setOpacityLastSection(scroll.range(3 / 4, 1 / 4));
   });
 
   return (
@@ -66,10 +68,31 @@ export const Overlay = () => {
             </button>
           </div>
         </Section>
+
+        <Section opacity={opacityThirdSection}>
+          <div className="text-end w-full h-full text-2xl flex-col flex items-end justify-center ">
+            <p>Feel free to explore</p>
+            <p>
+              my <b>projects on GitHub</b>.
+            </p>
+            <p>Your curiosity is always welcome!</p>
+            <button
+              className="text-turquoise font-bold pt-2 uppercase md:hover:underline"
+              onClick={() => navigate("/projects")}
+            >
+              my projects
+            </button>
+          </div>
+        </Section>
+
         <Section opacity={opacityLastSection}>
           <div className="text-center text-2xl flex-col flex items-center justify-start pt-12 sm:pt-24">
-            <p>If you think I'll be a good fit for your company,</p>
-            <p>or if you have any questions</p>
+            <p>
+              If you think I'll be a <b>good fit</b> for your company,
+            </p>
+            <p>
+              or if you have <b>any questions</b>
+            </p>
             <button
               className="text-transparent sm:shiny-text font-bold hover:text-orange uppercase text-3xl"
               onClick={() => navigate("/contact")}

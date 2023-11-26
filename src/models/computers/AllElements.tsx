@@ -19,14 +19,26 @@ export const AllElements = () => {
 
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
+
     tl.current.to(
       allElementsRef.current.position,
       { duration: 1, x: -2.7, y: -0.58, z: 5 },
-      1
+      2
     );
     tl.current.to(
       allElementsRef.current.rotation,
       { duration: 0.5, x: 0, y: -0.47, z: 0 },
+      2
+    );
+
+    tl.current.to(
+      allElementsRef.current.position,
+      { duration: 1, x: -0.8, y: 0.17, z: 1.5 },
+      1
+    );
+    tl.current.to(
+      allElementsRef.current.rotation,
+      { duration: 0.5, x: 0, y: -0.44, z: 0 },
       1
     );
 
