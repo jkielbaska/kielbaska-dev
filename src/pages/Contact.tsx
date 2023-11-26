@@ -3,14 +3,18 @@ import { Canvas } from "@react-three/fiber";
 import { ContactForm } from "../components/ContactForm";
 import { Bun } from "../models/Bun";
 import { OrbitControls } from "@react-three/drei";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { Loader } from "../components/Loader";
 
 export const Contact = () => {
   const [rotate, setRotate] = useState(false);
   const handleFocus = () => setRotate(true);
   const handleBlur = () => setRotate(false);
   return (
-    <div className="w-full h-screen flex justify-center items-center md:flex-row flex-col-reverse sm:shadow-innerGlow">
+    <div className="w-full h-screen flex justify-center items-center md:flex-row flex-col-reverse ">
+      <h1 className="absolute sm:top-[130px] sm:z-0 z-10 top-[80px] text-5xl right-auto left-auto shiny-text font-semibold">
+        Contact me!
+      </h1>
       <ContactForm
         name={"name/company"}
         email={"email"}
@@ -25,42 +29,36 @@ export const Contact = () => {
         <Canvas
           camera={{ position: [-2.8, 0.7, 5.5], fov: 40, near: 1, far: 25 }}
         >
-          <OrbitControls
-            autoRotate={rotate}
-            autoRotateSpeed={2.7}
-            enableRotate={false}
-            enableZoom={false}
-          />
-          <ambientLight intensity={1} />
-          <pointLight
-            distance={55}
-            intensity={55}
-            position={[0.2, 2, 0.7]}
-            color="orange"
-          />
-          <pointLight
-            distance={55}
-            intensity={55}
-            position={[0, 2, -3]}
-            color="orange"
-          />
-          <pointLight
-            distance={55}
-            intensity={55}
-            position={[-5, 0, 2]}
-            color="orange"
-          />
-          <Bun color="#122" scale={1.9} />
+          <Suspense fallback={<Loader />}>
+            <OrbitControls
+              autoRotate={rotate}
+              autoRotateSpeed={2.7}
+              enableRotate={false}
+              enableZoom={false}
+            />
+            <ambientLight intensity={1} />
+            <pointLight
+              distance={55}
+              intensity={55}
+              position={[0.2, 2, 0.7]}
+              color="orange"
+            />
+            <pointLight
+              distance={55}
+              intensity={55}
+              position={[0, 2, -3]}
+              color="orange"
+            />
+            <pointLight
+              distance={55}
+              intensity={55}
+              position={[-5, 0, 2]}
+              color="orange"
+            />
+            <Bun color="#122" scale={1.9} />
+          </Suspense>
         </Canvas>
       </div>
     </div>
   );
 };
-// outline outline-[1rem] outline-borderOrange
-
-{
-  /* <div className="relative w-screen h-screen flex justify-center items-center bg-gradient-radial from-yellow via-borderOrange to-black"></div> */
-}
-{
-  /* <div className="z-0 blur-sm shadow-glow w-[85%] h-[80%] bg-black rounded-2xl outline outline-[0.2rem] outline-borderOrange" /> */
-}
