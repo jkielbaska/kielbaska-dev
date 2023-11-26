@@ -7,10 +7,11 @@ import { experiences, skills } from "../constants";
 
 import "react-vertical-timeline-component/style.min.css";
 import { CTA } from "../components/CTA";
+import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
-    <section className="w-full h-full text-white">
+    <section className=" text-white h-screen">
       <h1 className="text-4xl w-full font-light h-20 pt-[130px] flex items-end justify-center">
         Hello, I'm&nbsp;
         <span className="font-semibold text-turquoise">Jakub</span>
@@ -29,10 +30,13 @@ export const About = () => {
       </div>
 
       <div className="p-10 w-full flex flex-col">
-        <h3 className="pl-1 text-xl font-light ">My Skills</h3>
+        <p className="text-xs font-extralight text-zinc-500 pl-1">some of</p>
+        <h3 className="pl-1 text-2xl font-light ">My Skills</h3>
         <div className="mt-4 flex justify-center flex-wrap gap-7">
           {skills.map((skill) => (
-            <div
+            <Link
+              to={skill.link_to}
+              target="_blank"
               className="block-container w-20 h-20"
               title={skill.name}
               key={skill.name}
@@ -45,14 +49,22 @@ export const About = () => {
                   className="w-1/2 h-1/2 object-contain"
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
 
       <div className="p-10 w-full">
-        <h3 className="pl-1 text-xl font-light">Work Experience</h3>
-        <div className="mt-3 text-zinc-400"></div>
+        <h3 className="pl-1 text-2xl font-light">Work Experience</h3>
+        <div className="w-full py-4 px-2 text-zinc-400">
+          <p>
+            Down below is brief description of my commercial experience. If you
+            want to know more -{" "}
+            <Link to="/contact" className="underline hover:text-turquoise">
+              contact me!
+            </Link>
+          </p>
+        </div>
 
         <div className="mt-12 flex">
           <VerticalTimeline lineColor="#ffffff33">
@@ -74,12 +86,21 @@ export const About = () => {
                 <div className="text-zinc-400">
                   <p className="text-zinc-500 text-xs">{experience.date}</p>
                   <h3 className=" text-xl">{experience.title}</h3>
-                  <p
-                    className=" font-extralight text-base"
-                    style={{ margin: 0 }}
-                  >
-                    {experience.company_name} <br />
-                  </p>
+
+                  {experience.href ? (
+                    <Link
+                      className="m-0 hover:underline flex w-[20%]"
+                      target="_blank"
+                      to={experience.link_to}
+                    >
+                      {experience.company_name}
+                      <span className="text-xs text-zinc-500 font-light">
+                        &nbsp; (preview)
+                      </span>
+                    </Link>
+                  ) : (
+                    <p style={{ margin: 0 }}>{experience.company_name} </p>
+                  )}
                 </div>
 
                 <ul className="text-zinc-400 my-5 ml-5 space-y-2">
