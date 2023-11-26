@@ -66,10 +66,14 @@ export const ScreenText = ({
 };
 
 export function ScreenInteractive({
+  text,
+  href,
   frame,
   panel,
   position,
 }: {
+  text: string;
+  href: string;
   frame: string;
   panel: string;
   position: [number, number, number];
@@ -95,11 +99,11 @@ export function ScreenInteractive({
         fontSize={0.3}
         letterSpacing={-0.1}
         color={"#000000"}
-        onClick={() => navigate("/contact")}
+        onClick={() => navigate(href)}
         onPointerOver={() => setIsHovering(true)}
         onPointerOut={() => setIsHovering(false)}
       >
-        Contact me!
+        {text}
       </Text>
       <SpinningBox position={[-3.15, 0.65, 0]} scale={0.5} />
     </Screen>
