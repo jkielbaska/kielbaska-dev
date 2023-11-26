@@ -1,8 +1,9 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const links = [
+  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
@@ -10,15 +11,15 @@ const links = [
 
 export const Navbar = () => {
   return (
-    <header className="header absolute z-10 m-4 flex justify-between w-11/12">
-      <div className=" w-10 h-10 rounded-lg bg-transparent text-zinc-400 border-4 border-white flex items-center justify-center font-bold hover:border-4 hover:border-turquoise hover:bg-transparent ">
-        <Link to="/" className="">
+    <header className="header fixed backdrop-blur-sm z-10 flex justify-between w-full p-5 pr-7">
+      <div className=" w-10 h-10 rounded-lg  bg-transparent text-zinc-400 border-4 border-zinc-200 flex items-center justify-center font-bold hover:border-4 hover:border-turquoise hover:bg-transparent ">
+        <NavLink to="/" className="">
           JK
-        </Link>
+        </NavLink>
       </div>
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="w-full justify-center rounded-md bg-transparent text-sm font-semibold text-white hover:text-turquoise">
+          <Menu.Button className="w-full justify-center rounded-md bg-transparent text-sm font-semibold text-zinc-200 hover:text-turquoise">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -45,16 +46,20 @@ export const Navbar = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-10 w-[100px] flex uppercase font-light justify-center rounded-md bg-white">
+          <Menu.Items className="absolute right-0 z-10 w-[110px] flex uppercase  justify-center rounded-md bg-white">
             <div className="py-1 flex flex-col">
               {links.map((link) => (
                 <Menu.Item key={link.to} as={Fragment}>
-                  <Link
+                  <NavLink
                     to={link.to}
-                    className={`hover:text-turquoise text-black`}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-borderOrange hover:cursor-default"
+                        : "text-zinc-500 hover:text-turquoise"
+                    }
                   >
                     {link.label}
-                  </Link>
+                  </NavLink>
                 </Menu.Item>
               ))}
             </div>
@@ -64,16 +69,3 @@ export const Navbar = () => {
     </header>
   );
 };
-
-{
-  /* <div
-onClick={() => setIsOpen((prev) => !prev)}
-className={classNames(`tham tham-e-squeeze tham-w-6 `, {
-  "tham-active": isOpen,
-})}
->
-<div className="tham-box text-white items-center justify-center">
-  <div className="tham-inner" />
-</div>
-</div> */
-}
