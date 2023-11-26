@@ -39,9 +39,14 @@ export default {
             "background-position": "right center",
           },
         },
+        border: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         text: "text 3s ease infinite",
+        border: "border 4s ease infinite",
       },
     },
   },

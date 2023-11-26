@@ -16,7 +16,7 @@ body {
 
 @layer components {
   .shiny-text {
-    @apply animate-text bg-gradient-to-r from-zinc-800 via-borderOrange to-zinc-500 bg-clip-text text-transparent;
+    @apply animate-text bg-gradient-to-r from-zinc-400 via-borderOrange to-zinc-600 bg-clip-text text-transparent;
   }
 }
 
