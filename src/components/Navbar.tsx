@@ -1,6 +1,11 @@
+import { useState, useRef, useEffect } from "react";
+import { useVisibilityChange } from "@uidotdev/usehooks";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { NavLink } from "react-router-dom";
+
+import gymno from "../assets/gymnopedie.mp3";
+import { soundoff, soundon } from "../assets/icons";
 
 const links = [
   { to: "/", label: "Home" },
@@ -10,16 +15,42 @@ const links = [
 ];
 
 export const Navbar = () => {
+  const documentVisible = useVisibilityChange();
+  const audioRef = useRef<HTMLAudioElement>(new Audio(gymno));
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+
+  audioRef.current.volume = 0.4;
+  audioRef.current.loop = true;
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    if (isPlayingMusic && documentVisible) {
+      audio.play();
+    }
+    return () => {
+      audio.pause();
+    };
+  }, [isPlayingMusic, documentVisible]);
+
   return (
-    <header className="header fixed backdrop-blur-sm z-10 flex justify-between w-full p-5 pr-7">
-      <div className=" w-10 h-10 rounded-lg  bg-transparent text-zinc-400 border-4 border-zinc-200 flex items-center justify-center font-bold hover:border-4 hover:border-turquoise hover:bg-transparent ">
+    <header className="fixed backdrop-blur-sm z-10 flex justify-between items-center w-full pl-5 pt-2 pr-7">
+      <div className="w-10 h-10 rounded-lg  bg-transparent text-zinc-400 border-4 border-turquoise md:border-zinc-200 flex items-center justify-center font-bold md:hover:border-turquoise focus:outline-none">
         <NavLink to="/" className="">
           JK
         </NavLink>
       </div>
+      <div className="">
+        <img
+          src={!isPlayingMusic ? soundoff : soundon}
+          alt="jukebox"
+          onClick={() => setIsPlayingMusic((prev) => !prev)}
+          className="w-7 h-7 opacity-80 cursor-pointer object-contain"
+        />
+      </div>
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="w-full justify-center rounded-md bg-transparent text-sm font-semibold text-zinc-200 hover:text-turquoise">
+          <Menu.Button className="w-full justify-center rounded-md bg-transparent text-sm font-semibold text-zinc-200 md:hover:text-turquoise">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,16 +77,16 @@ export const Navbar = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 z-10 w-[110px] flex uppercase  justify-center rounded-md bg-white">
-            <div className="py-1 flex flex-col">
+          <Menu.Items className="absolute right-0 z-10 md:w-[110px] h-auto w-[140px]  flex uppercase focus:outline-none justify-center rounded-md bg-white">
+            <div className="py-1 flex flex-col gap-1 pt-1 text-lg md:gap-0 md:pt-0 ">
               {links.map((link) => (
                 <Menu.Item key={link.to} as={Fragment}>
                   <NavLink
                     to={link.to}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-borderOrange hover:cursor-default"
-                        : "text-zinc-500 hover:text-turquoise"
+                        ? "text-borderOrange md:hover:cursor-default focus:outline-none"
+                        : "text-zinc-500 md:hover:text-turquoise focus:outline-none"
                     }
                   >
                     {link.label}
