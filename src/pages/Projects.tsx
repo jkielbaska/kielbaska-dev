@@ -15,7 +15,7 @@ export const Projects = () => {
         <Link
           to="https://github.com/jkielbaska"
           target="_blank"
-          className="font-semibold shiny-text hover:text-turquoise"
+          className="font-semibold shiny-text md:hover:text-turquoise"
         >
           Projects
         </Link>
@@ -48,8 +48,7 @@ export const Projects = () => {
                 <Link
                   to={project.link}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-turquoise  hover:shiny-text"
+                  className="font-semibold text-turquoise  md:hover:shiny-text"
                 >
                   repository
                 </Link>

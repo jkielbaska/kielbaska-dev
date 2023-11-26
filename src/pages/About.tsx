@@ -25,7 +25,7 @@ export const About = () => {
           communication make me a strong candidate. As a Front-End developer, I
           understand the importance of keeping up with the latest technologies
           and trends. I enjoy taking on new challenges and I am not afraid to
-          step out of my comfort zone
+          step out of my comfort zone.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export const About = () => {
           <p>
             Down below is brief description of my commercial experience. If you
             want to know more -{" "}
-            <Link to="/contact" className="underline hover:text-turquoise">
+            <Link to="/contact" className="underline md:hover:text-turquoise">
               contact me!
             </Link>
           </p>
@@ -89,7 +89,7 @@ export const About = () => {
 
                   {experience.href ? (
                     <Link
-                      className="m-0 hover:underline flex w-[20%]"
+                      className="m-0 md:hover:underline flex md:w-1/3 w-full"
                       target="_blank"
                       to={experience.link_to}
                     >

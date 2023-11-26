@@ -12,8 +12,8 @@ export const Contact = () => {
   const handleFocus = () => setRotate(true);
   const handleBlur = () => setRotate(false);
   return (
-    <div className="w-full h-screen flex justify-center items-center md:flex-row flex-col-reverse ">
-      <h1 className="absolute sm:top-[130px] sm:z-0 z-10 top-[80px] text-5xl right-auto left-auto shiny-text font-semibold">
+    <div className="w-full h-[100dvh] flex justify-center items-center md:flex-row flex-col-reverse">
+      <h1 className="hidden sm:block absolute sm:top-[130px] sm:z-0 z-10 top-[80px] text-5xl right-auto left-auto shiny-text font-semibold">
         Contact me!
       </h1>
       <ContactForm

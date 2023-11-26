@@ -1,6 +1,6 @@
+import { ReactNode, useState } from "react";
 import { Scroll, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Section = ({
@@ -41,7 +41,7 @@ export const Overlay = () => {
     <Scroll html>
       <div className="w-screen">
         <Section opacity={opacityFirstSection}>
-          <div className="w-full h-full text-2xl flex-col flex items-end justify-end p-11">
+          <div className="w-full h-full text-2xl flex-col flex items-end justify-end sm:p-11 text-end">
             <p>
               <b>Hello :)</b>
             </p>
@@ -49,7 +49,7 @@ export const Overlay = () => {
           </div>
         </Section>
         <Section opacity={opacitySecondSection}>
-          <div className="w-full h-full text-2xl flex-col flex items-start justify-center mb-4">
+          <div className="w-full h-full text-2xl flex-col flex items-start justify-center mb-8">
             <p>
               As a <b>Front-End engineer,</b>
             </p>
@@ -59,7 +59,7 @@ export const Overlay = () => {
             </p>
             <p>Only imagination can stop us.</p>
             <button
-              className="text-turquoise font-bold pt-2 uppercase hover:underline"
+              className="text-turquoise font-bold pt-2 uppercase md:hover:underline"
               onClick={() => navigate("/about")}
             >
               Explore more about my journey
@@ -67,12 +67,11 @@ export const Overlay = () => {
           </div>
         </Section>
         <Section opacity={opacityLastSection}>
-          <div className="text-2xl flex-col flex items-center justify-start pt-12">
-            <p>If you think I'll be a good fit for your company</p>
-            <p>or if you have any questions,</p>
-            <p>please don't hesitate to</p>
+          <div className="text-center text-2xl flex-col flex items-center justify-start pt-12 sm:pt-24">
+            <p>If you think I'll be a good fit for your company,</p>
+            <p>or if you have any questions</p>
             <button
-              className="font-bold hover:text-borderOrange shiny-text uppercase pt-4 text-3xl"
+              className="text-transparent sm:shiny-text font-bold hover:text-orange uppercase text-3xl"
               onClick={() => navigate("/contact")}
             >
               Contact me!
