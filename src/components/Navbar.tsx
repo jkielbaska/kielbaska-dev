@@ -2,17 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { useVisibilityChange } from "@uidotdev/usehooks";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
+
 import { NavLink } from "react-router-dom";
+import { links } from "../constants/links";
 
 import gymno from "../assets/gymnopedie.mp3";
 import { soundoff, soundon } from "../assets/icons";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
-];
 
 export const Navbar = () => {
   const documentVisible = useVisibilityChange();

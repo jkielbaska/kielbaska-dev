@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Home, About, Contact, Projects } from "./pages";
 import { Navbar } from "./components/Navbar";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
