@@ -42,6 +42,7 @@ export const useMessage = (successToast: string, errorToast: string) => {
           setSuccess(true);
           toast.success(successToast);
           setIsLoading(false);
+          reset();
         },
         (error) => {
           setSuccess(false);
