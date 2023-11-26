@@ -74,7 +74,7 @@ export const ContactForm = ({
         />
 
         <button
-          className={`outline-none bg-transparent border-2 border-x-2 border-zinc-900 rounded-b-xl h-[50px] text-gray-400 hover:text-borderOrange
+          className={`outline-none bg-transparent border-2 border-x-2 border-zinc-900 rounded-b-xl h-[50px] text-gray-400 md:hover:text-borderOrange
           ${errors?.email && "border-red-900"}`}
         >
           {isLoading ? "..." : button}
