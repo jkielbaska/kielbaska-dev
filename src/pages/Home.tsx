@@ -2,7 +2,6 @@ import { Canvas } from "@react-three/fiber";
 import { Experience } from "../models/computers/Experience";
 import { Suspense } from "react";
 import { Loader } from "../components/Loader";
-// import { Title } from "../components/Title";
 
 export const Home = () => {
   return (

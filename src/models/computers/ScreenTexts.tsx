@@ -53,14 +53,13 @@ export const ScreenText = ({
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} />
       <Text
-        // font="/Inter-Medium.woff"
         position={[x, y, 0]}
         ref={textRef}
         fontSize={4}
         letterSpacing={-0.1}
         color={!invert ? "black" : "#35c19f"}
       >
-        Jakub Kielbaska
+        J.Kielbaska
       </Text>
     </Screen>
   );
@@ -92,7 +91,6 @@ export function ScreenInteractive({
       <pointLight position={[10, 10, 10]} intensity={0.75} />
       <pointLight position={[-10, -10, -10]} />
       <Text
-        // font="/Inter-Medium.woff"
         position={[-2.5, 1.05, 2]}
         fontSize={0.3}
         letterSpacing={-0.1}
