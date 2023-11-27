@@ -40,9 +40,12 @@ export const Projects = () => {
             </div>
 
             <div className="mt-5">
-              <h4 className="text-3xl text-zinc-300 font-semibold">
-                {project.name}
-              </h4>
+              <Link to={project.link} target="_blank">
+                <h4 className="text-3xl text-zinc-300 font-semibold">
+                  {project.name}
+                </h4>
+              </Link>
+
               <p className="mt-2 text-slate-500">{project.description}</p>
               <div className="mt-2 flex items-center gap-2">
                 <Link
