@@ -1,7 +1,6 @@
 // import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { ContactForm } from "../components/ContactForm";
-//@ts-expect-error - temporary change for jsx
 import { Bun } from "../models/Bun";
 import { OrbitControls } from "@react-three/drei";
 import { Suspense, useState } from "react";
@@ -13,7 +12,7 @@ export const Contact = () => {
   const handleBlur = () => setRotate(false);
   return (
     <div className="w-full h-[100dvh] flex justify-center items-center md:flex-row flex-col-reverse">
-      <h1 className="hidden sm:block absolute sm:top-[130px] sm:z-0 z-10 top-[80px] text-5xl right-auto left-auto shiny-text font-semibold">
+      <h1 className="hidden 2xl:block absolute top-[130px] sm:z-0 z-10 text-5xl right-auto left-auto shiny-text font-semibold">
         Contact me!
       </h1>
       <ContactForm

@@ -73,7 +73,17 @@ export const Overlay = () => {
           <div className="text-end w-full h-full text-2xl flex-col flex items-end justify-center ">
             <p>Feel free to explore</p>
             <p>
-              my <b>projects on GitHub</b>.
+              my{" "}
+              <b>
+                <a
+                  className="md:hover:text-borderOrange"
+                  target="_blank"
+                  href="https://github.com/jkielbaska"
+                >
+                  projects on GitHub
+                </a>
+              </b>
+              .
             </p>
             <p>Your curiosity is always welcome!</p>
             <button
@@ -86,7 +96,7 @@ export const Overlay = () => {
         </Section>
 
         <Section opacity={opacityLastSection}>
-          <div className="text-center text-2xl flex-col flex items-center justify-start pt-12 sm:pt-24">
+          <div className="text-center text-2xl flex-col flex items-center justify-start pt-12  2xl:pt-24">
             <p>
               If you think I'll be a <b>good fit</b> for your company,
             </p>
@@ -94,7 +104,7 @@ export const Overlay = () => {
               or if you have <b>any questions</b>
             </p>
             <button
-              className="text-transparent sm:shiny-text font-bold hover:text-orange uppercase text-3xl"
+              className="hidden 2xl:block shiny-text font-bold uppercase text-3xl"
               onClick={() => navigate("/contact")}
             >
               Contact me!
